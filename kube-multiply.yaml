@@ -1,24 +1,31 @@
-apiVersion: v1
-kind: Pod
+kind: Deployment
+apiVersion: apps/v1
 metadata:
-   name: multiply-pod
+  name: multiply-deployment
+  labels:
+    app: multiply
 spec:
-   containers:
-   - name: multiply-http-cont
-     image: mahendrakariya/multiply_http:0.0.1
-     ports:
-     - containerPort: 8001
-   - name: multiply-http-cont-1
-     image: mahendrakariya/add_grpc:0.0.1
-     ports:
-     - containerPort: 50051
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multiply
+  template:
+    metadata:
+      labels:
+        app: multiply
+    spec:
+      containers:
+      - name: multiply-http-cont
+        image: mahendrakariya/multiply_http:0.0.1
+        ports:
+        - containerPort: 8001
 ---
 apiVersion: v1
 kind: Service
 metadata:
-   name: multiply-svc
+  name: multiply-svc
 spec:
-   ports:
-     - protocol: TCP
-       port: 8001
-       targetPort: 8001
+  ports:
+  - protocol: TCP
+    port: 8001
+    targetPort: 8001
