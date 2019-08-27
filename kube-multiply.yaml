@@ -25,6 +25,8 @@ kind: Service
 metadata:
   name: multiply-svc
 spec:
+  selector:
+    app: multiply
   ports:
   - protocol: TCP
     port: 8001
