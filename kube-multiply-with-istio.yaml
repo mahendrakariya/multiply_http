@@ -167,6 +167,7 @@ spec:
     app: multiply
   ports:
   - protocol: TCP
+    name: "http"
     port: 8001
     targetPort: 8001
 ---
