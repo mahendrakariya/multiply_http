@@ -1,6 +1,6 @@
-USERNAME=himani93
+USERNAME=mahendrakariya
 IMAGE=multiply_http
-VERSION=0.0.2
+VERSION=0.0.4
 
 build:
 	go build -o multiply

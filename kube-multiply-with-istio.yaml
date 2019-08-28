@@ -20,7 +20,7 @@ spec:
         app: multiply
     spec:
       containers:
-      - image: himani93/multiply_http:0.0.2
+      - image: mahendrakariya/multiply_http:0.0.4
         name: multiply-http-cont
         ports:
         - containerPort: 8001
